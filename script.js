@@ -2,6 +2,8 @@ var currentColor = null
 var wrongGuesses = [];
 var code = [];
 var guess = [];
+var newGuessArray = []
+
 
 var COLORS = {
   'turquoise' : "#40e0d0",
@@ -123,7 +125,9 @@ myBtn.addEventListener('click', function (event){
     for (var i = 0; i < guess.length; i++){
       guesses.push(parseCOLOR(COLORS, guess[i]))
     }
+
     wrongGuesses.push(guesses)
+    newGuessArray = guesses
     codeCheck();
     guess = [];
     render();
@@ -156,11 +160,15 @@ function generateCompCode(){
   console.log("Current code is", code);
   return code;
 }
+// var newGuessArray = []
+// for (var i = 0; i < guess.length; i++){
+//   newGuessArray.push(parseCOLOR(COLORS, guess[i]))
+// }
 
 function codeCheck(){
   var exact_count = 0;
   var near_count = 0;
-  var copyGuess = Object.assign([], guess)
+  var copyGuess = Object.assign([], newGuessArray)
   var copyCode = Object.assign([], code)
   for (var i = 0; i < copyCode.length; i ++){
     if (copyCode[i] === copyGuess[i]){
@@ -168,6 +176,8 @@ function codeCheck(){
       copyGuess[i] = NaN;
       exact_count++;
     }
+  }
+  for (var i = 0; i < copyCode.length; i ++){
     if (copyCode.includes(copyGuess[i])){
       near_count++;
     }
