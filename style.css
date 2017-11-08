@@ -1,0 +1,111 @@
+
+
+#ultimate-container{
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  background: #efb1a6;
+  background-image: url('Mastermind_directions.png');
+  background-repeat: no-repeat;
+  /*cursor: url('redball.png'), auto;*/
+}
+
+#logo{
+
+}
+
+#directions {
+
+}
+
+#li{
+  list-style-type: none;
+}
+
+#game-box{
+  max-width: 280px;
+  background-image: url('wood-72380_1280.jpg');
+  border-radius: 25px;
+  margin: 20px;
+  padding: 10px;
+
+}
+
+form{
+
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+canvas {
+  float: left;
+  margin: 10px;
+}
+
+.color {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  float: left;
+  margin: 15px 15px 15px 15px;
+  border: 3px;
+}
+
+.empty{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 15px 15px 15px 15px;
+  box-shadow: inset 15px 15px 30px rgba(0,0,0,.1);
+  background-image: url('wood_background2.jpg');
+}
+
+.submitButton{
+  position: relative;
+}
+
+.green {
+ margin: 10px;
+ background-color: green;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
+}
+
+.blue {
+ margin: 10px;
+ background-color: blue;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
+}
+.red {
+ margin: 10px;
+ background-color: red;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
+}
+.purple {
+ margin: 10px;
+ background-color: purple;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
+}
+.orange {
+ margin: 10px;
+ background-color: orange;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
+}
+.yellow {
+ margin: 10px;
+ background-color: yellow;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
+}
+.black {
+ margin: 10px;
+ background-color: grey;
+ box-shadow: inset -25px -25px 30px rgba(0,0,0,.3);
+}
+.turquoise {
+ margin: 10px;
+ background-color: turquoise;
+ box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
+}
