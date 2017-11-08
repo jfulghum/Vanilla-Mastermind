@@ -68,14 +68,10 @@ function renderWrongGuesses() {
   }
 }
 
-function renderFeedback(){
-  var pegs = document.querySelector("#peg-list");
-}
-
 function render() {
   renderWrongGuesses();
   renderEmpties();
-  renderFeedback();
+
 }
 
 function changeCursor(el){
@@ -115,7 +111,7 @@ var myBtn = document.getElementById("submitButton");
 myBtn.addEventListener('click', function (event){
     if (correctSubmit()){
     firstRow = document.getElementById("first-row").children;
-    for (var i = 0; i < firstRow.length; i++){
+    for (var i = 0; i < firstRow.length - 1; i++){
       // hex = firstRow[i].style.backgroundColor;
       firstRow[i].style.backgroundColor = "";
       firstRow[i].style.backgroundImage = "url('wood_background2.jpg')";
@@ -184,11 +180,17 @@ function codeCheck(){
   }
   near_count = Math.abs(near_count - exact_count);
 
-  // return [exact_count, near_count];
-  renderPegs(exact_count, near_count)
-  console.log(exact_count, near_count)
+  checkWinner(exact_count, near_count)
+}
+
+function checkWinner(exact_count, near_count){
+  if (exact_count == 4){
+    alert("You WON!")
+  } else {
+    renderPegs(exact_count, near_count)
+  }
 }
 
 function renderPegs(exact_count, near_count){
-
+  var pegs = document.querySelector("#peg-list");
 }

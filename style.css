@@ -10,7 +10,7 @@
 }
 
 #game-box{
-  max-width: 280px;
+  width: 347px;
   background-image: url('wood-72380_1280.jpg');
   border-radius: 25px;
   margin: 20px;
@@ -46,11 +46,19 @@ canvas {
   background-image: url('wood_background2.jpg');
 }
 
-.peg-list{
-  border-radius: 0%;
-  width: 40px;
-  height: 40px;
-  background-color: blue);
+.peg_list{
+  border: solid;
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin: 15px 15px 15px 15px;
+}
+
+.invis_peg_list{
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin: 15px 15px 15px 15px;
 }
 
 .submitButton{
