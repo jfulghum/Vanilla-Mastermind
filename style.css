@@ -69,43 +69,51 @@ canvas {
 }
 
 .green {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: green;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }
 
 .blue {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: blue;
+  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }
 .red {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: red;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }
 .purple {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: purple;
+  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
 .orange {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: orange;
+  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
 .yellow {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: yellow;
+  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
 .black {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: grey;
+  background-image: none;
  box-shadow: inset -25px -25px 30px rgba(0,0,0,.3);
 }
 .turquoise {
- margin: 10px;
+ /*margin: 10px;*/
  background-color: turquoise;
+  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
