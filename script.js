@@ -4,14 +4,14 @@ var code = [];
 var guess = [];
 
 var COLORS = {
-  'turquoise' : "rgb(64, 224, 208)",
-  'black' : "rgb(0, 0, 0)",
-  'purple' : "rgb(128, 0, 128)",
-  'orange' : "rgb(255, 165, 0)",
-  'blue' : "rgb(0, 0, 255)",
-  'red' : "rgb(255, 0, 0)",
-  'green' : "rgb(0, 255, 0)",
-  'yellow' : "rgb(64, 224, 208)"
+  'turquoise' : "#40e0d0",
+  'black' : "#000000",
+  'purple' : "#800080",
+  'orange' : "#ffa500",
+  'blue' : "#0000ff",
+  'red' : "#ff0000",
+  'green' : "#008000",
+  'yellow' : "#ffff00"
 }
 
 function canvasMaker(id,color){
@@ -24,22 +24,22 @@ function canvasMaker(id,color){
     c.setAttribute("onClick","changeCursor(this)");
 }
 
-canvasMaker("canv1", "blue")
-canvasMaker("canv2", "red")
-canvasMaker("canv3", "green")
-canvasMaker("canv4", "yellow")
-canvasMaker("canv5", "turquoise")
-canvasMaker("canv6", "black")
-canvasMaker("canv7", "purple")
-canvasMaker("canv8", "orange")
+canvasMaker("canv1", "#0000ff")
+canvasMaker("canv2", "#ff0000")
+canvasMaker("canv3", "#008000")
+canvasMaker("canv4", "#ffff00")
+canvasMaker("canv5", "#40e0d0")
+canvasMaker("canv6", "#000000")
+canvasMaker("canv7", "#800080")
+canvasMaker("canv8", "#ffa500")
 
 function createRow() {
   var child = document.createElement("ul");
   child.innerHTML =
-  '<li class="empty"></li>' +
-  '<li class="empty"></li>' +
-  '<li class="empty"></li>' +
-  '<li class="empty"></li>';
+  '<li class="empty pos_0"></li>' +
+  '<li class="empty pos_1"></li>' +
+  '<li class="empty pos_2"></li>' +
+  '<li class="empty pos_3"></li>';
   return child;
 }
 
@@ -66,9 +66,14 @@ function renderWrongGuesses() {
   }
 }
 
+function renderFeedback(){
+  var pegs = document.querySelector("#peg-list");
+}
+
 function render() {
   renderWrongGuesses();
   renderEmpties();
+  renderFeedback();
 }
 
 function changeCursor(el){
@@ -104,21 +109,22 @@ function submitEvent(){
   }
 }
 
-
-
 var myBtn = document.getElementById("submitButton");
 myBtn.addEventListener('click', function (event){
-  console.log(correctSubmit());
-  if (correctSubmit()){
+    if (correctSubmit()){
     firstRow = document.getElementById("first-row").children;
     for (var i = 0; i < firstRow.length; i++){
-      rgb = firstRow[i].style.backgroundColor;
+      // hex = firstRow[i].style.backgroundColor;
       firstRow[i].style.backgroundColor = "";
       firstRow[i].style.backgroundImage = "url('wood_background2.jpg')";
-      guess.push(parseCOLOR(COLORS, rgb));
+      // guess.push(parseCOLOR(COLORS, hex));
     }
+    var guesses = []
+    for (var i = 0; i < guess.length; i++){
+      guesses.push(parseCOLOR(COLORS, guess[i]))
+    }
+    wrongGuesses.push(guesses)
     codeCheck();
-    wrongGuesses.push(guess);
     guess = [];
     render();
   }
@@ -126,12 +132,20 @@ myBtn.addEventListener('click', function (event){
 
 function changeColor(el){
   el.style.background = currentColor;
+  if (el.className === 'empty pos_0'){
+    guess[0] = currentColor;
+  } else if (el.className === 'empty pos_1'){
+    guess[1] = currentColor;
+  } else if (el.className === 'empty pos_2'){
+    guess[2] = currentColor;
+  } else if (el.className === 'empty pos_3'){
+    guess[3] = currentColor;
+  }
+  // console.log(guess)
 }
 
-
-
-function parseCOLOR(object, rgb){
-  return Object.keys(object).find(key => object[key] === rgb);
+function parseCOLOR(object, hex){
+  return Object.keys(object).find(key => object[key] === hex);
 }
 
 function generateCompCode(){
@@ -143,21 +157,28 @@ function generateCompCode(){
   return code;
 }
 
-
-
 function codeCheck(){
-  // var exact_count = 0;
-  // var near_count = 0;
-  // for (var i = 0; i < code.length; i ++){
-  //   if (code[i] === guess[i]){
-  //     code[i] = NaN;
-  //     exact_count ++;
-  //     guess[i] = NaN;
-  //   }
-  //   if (code.includes(guess[i])){
-  //     near_count ++
-  //   }
-  // }
-  // near_count = Math.abs(near_count - exact_count)
+  var exact_count = 0;
+  var near_count = 0;
+  var copyGuess = Object.assign([], guess)
+  var copyCode = Object.assign([], code)
+  for (var i = 0; i < copyCode.length; i ++){
+    if (copyCode[i] === copyGuess[i]){
+      copyCode[i] = NaN;
+      copyGuess[i] = NaN;
+      exact_count++;
+    }
+    if (copyCode.includes(copyGuess[i])){
+      near_count++;
+    }
+  }
+  near_count = Math.abs(near_count - exact_count);
+
   // return [exact_count, near_count];
+  renderPegs(exact_count, near_count)
+  console.log(exact_count, near_count)
+}
+
+function renderPegs(exact_count, near_count){
+
 }

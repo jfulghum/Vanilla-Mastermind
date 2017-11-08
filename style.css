@@ -1,22 +1,9 @@
-
-
 #ultimate-container{
   min-height: 500px;
   display: flex;
   justify-content: center;
   background: #efb1a6;
-  background-image: url('Mastermind_directions.png');
-  background-repeat: no-repeat;
-  /*cursor: url('redball.png'), auto;*/
-}
-
-#logo{
-
-}
-
-#directions {
-
-}
+  background-repeat: no-repeat;}
 
 #li{
   list-style-type: none;
@@ -28,11 +15,6 @@
   border-radius: 25px;
   margin: 20px;
   padding: 10px;
-
-}
-
-form{
-
 }
 
 ul {
@@ -64,56 +46,55 @@ canvas {
   background-image: url('wood_background2.jpg');
 }
 
+.peg-list{
+  border-radius: 0%;
+  width: 40px;
+  height: 40px;
+  background-color: blue);
+}
+
 .submitButton{
-  position: relative;
+
 }
 
 .green {
- /*margin: 10px;*/
  background-color: green;
  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }
 
 .blue {
- /*margin: 10px;*/
  background-color: blue;
-  background-image: none;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }
 .red {
- /*margin: 10px;*/
  background-color: red;
  background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }
 .purple {
- /*margin: 10px;*/
  background-color: purple;
-  background-image: none;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
 .orange {
- /*margin: 10px;*/
  background-color: orange;
-  background-image: none;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
 .yellow {
- /*margin: 10px;*/
  background-color: yellow;
-  background-image: none;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
 .black {
- /*margin: 10px;*/
- background-color: grey;
-  background-image: none;
+ background-color: black;
+ background-image: none;
  box-shadow: inset -25px -25px 30px rgba(0,0,0,.3);
 }
 .turquoise {
- /*margin: 10px;*/
  background-color: turquoise;
-  background-image: none;
+ background-image: none;
  box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
 }
