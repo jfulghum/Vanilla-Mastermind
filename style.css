@@ -65,44 +65,11 @@ canvas {
 
 }
 
-.green {
- background-color: green;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
-}
-
-.blue {
- background-color: blue;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
-}
-.red {
- background-color: red;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
-}
-.purple {
- background-color: purple;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
-}
-.orange {
- background-color: orange;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
-}
-.yellow {
- background-color: yellow;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
-}
-.black {
- background-color: black;
- background-image: none;
- box-shadow: inset -25px -25px 30px rgba(0,0,0,.3);
-}
-.turquoise {
- background-color: turquoise;
- background-image: none;
- box-shadow: inset -15px -15px 30px rgba(0,0,0,.3);
+.ball {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 15px 15px 15px 15px;
+  box-shadow: inset -15px -15px 30px rgba(0,0,0,.1);
 }

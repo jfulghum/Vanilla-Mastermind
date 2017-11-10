@@ -15,35 +15,24 @@
     <div id="game-box">
       <div id="color-choice-list">
         <ul id="color-list">
+          <li> <canvas class="" id="canv0" width = "50" height = "50" ></canvas></li>
           <li> <canvas class="" id="canv1" width = "50" height = "50" ></canvas></li>
           <li> <canvas class="" id="canv2" width = "50" height = "50" ></canvas></li>
           <li> <canvas class="" id="canv3" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv4" width = "50" height = "50" ></canvas></li>
           <li class='invis_peg_list' ></li>
+          <li> <canvas class="" id="canv4" width = "50" height = "50" ></canvas></li>
           <li> <canvas class="" id="canv5" width = "50" height = "50" ></canvas></li>
           <li> <canvas class="" id="canv6" width = "50" height = "50" ></canvas></li>
           <li> <canvas class="" id="canv7" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv8" width = "50" height = "50" ></canvas></li>
           <li class='invis_peg_list' ></li>
         </ul>
       </div>
-      <div id="past-guesses"></div>
       <div id="empties">
-        <ul id="first-row">
-          <li class="empty pos_0"></li>
-          <li class="empty pos_1"></li>
-          <li class="empty pos_2"></li>
-          <li class="empty pos_3"></li>
-          <li class="peg_list">Peg List</li>
-        </ul>
-        <div id="empties-placeholder"></div>
       </div>
     </div>
-
-
     <div id="directions">
       <img src="Mastermind_directions.png"></img>
-      <div id="submitButton" >
+      <div id="submitButton" onClick="checkWin()" >
       <button>Submit</button>
     </div>
     </div>

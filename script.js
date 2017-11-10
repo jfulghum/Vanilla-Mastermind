@@ -1,22 +1,22 @@
 var currentColor = null
 var wrongGuesses = [];
-var code = [];
+var answer = [];
 var guess = [];
 var newGuessArray = []
 
 
-var COLORS = {
-  'turquoise' : "#40e0d0",
-  'black' : "#000000",
-  'purple' : "#800080",
-  'orange' : "#ffa500",
-  'blue' : "#0000ff",
-  'red' : "#ff0000",
-  'green' : "#008000",
-  'yellow' : "#ffff00"
-}
+var colors = [
+  "#40e0d0",
+  "#000000",
+  "#800080",
+  "#ffa500",
+  "#0000ff",
+  "#ff0000",
+  "#008000",
+  "#ffff00"
+]
 
-function canvasMaker(id,color){
+function createColorChoiceElement(id,color){
     var c = document.getElementById(id);
     var ctx = c.getContext("2d");
     ctx.beginPath();
@@ -26,14 +26,11 @@ function canvasMaker(id,color){
     c.setAttribute("onClick","changeCursor(this)");
 }
 
-canvasMaker("canv1", "#0000ff")
-canvasMaker("canv2", "#ff0000")
-canvasMaker("canv3", "#008000")
-canvasMaker("canv4", "#ffff00")
-canvasMaker("canv5", "#40e0d0")
-canvasMaker("canv6", "#000000")
-canvasMaker("canv7", "#800080")
-canvasMaker("canv8", "#ffa500")
+function createColorChoiceBoard(){
+  for (var i =0; i<colors.length ; i++){
+    createColorChoiceElement("canv" + i, colors[i])
+  }
+}
 
 function createRow() {
   var child = document.createElement("ul");
@@ -41,152 +38,114 @@ function createRow() {
   '<li class="empty pos_0"></li>' +
   '<li class="empty pos_1"></li>' +
   '<li class="empty pos_2"></li>' +
-  '<li class="empty pos_3"></li>';
+  '<li class="empty pos_3"></li>'+
+  '<li class="peg_list"></li>'
   return child;
 }
 
-generateCompCode();
-renderEmpties();
-
-function renderEmpties() {
-  var empties = document.querySelector("#empties-placeholder");
-  empties.innerHTML = "";
-  for (var i = 0; i < 9-wrongGuesses.length; ++i) {
+function createBoard(){
+  var empties = document.querySelector("#empties");
+  for (var i = 0; i < 10; ++i) {
     empties.appendChild(createRow());
   }
 }
 
-function renderWrongGuesses() {
-  var pastGuesses = document.querySelector("#past-guesses");
-  pastGuesses.innerHTML = "";
-  for (var i = 0; i < wrongGuesses.length; ++i) {
-    var row = createRow();
-    for (var k = 0; k < row.children.length; ++k) {
-      row.children[k].classList.add(wrongGuesses[i][k]);
-    }
-    pastGuesses.appendChild(row);
+
+function addClickHandler(){
+  for (var i = 0; i < 4; i++){
+    var element = document.getElementsByClassName('empty')[i]
+    element.setAttribute("onClick", "changeColor(this)")
   }
 }
 
-function render() {
-  renderWrongGuesses();
-  renderEmpties();
-
+function removeClickHandler(){
+  var ball = document.getElementsByClassName('ball')
+  for (var i = 0; i < ball.length; i++){
+  ball[i].removeAttribute("onClick", "changeColor(this)")
+  }
 }
 
 function changeCursor(el){
-    var mywindow = document.getElementsByTagName('html');
-    currentColor = el.getContext("2d").fillStyle;
-
-    var img = el.toDataURL()
-    mywindow[0].setAttribute('style', 'cursor: url('+img+') 20 20,auto;');
+  var mywindow = document.getElementsByTagName('html');
+  currentColor = el.getContext("2d").fillStyle;
+  var img = el.toDataURL()
+  mywindow[0].setAttribute('style', 'cursor: url('+img+') 20 20,auto;');
 }
 
-for (var i = 0; i < 4; i++){
-  var element = document.getElementsByClassName('empty')[i]
-  element.setAttribute("onClick", "changeColor(this)")
-}
-
-function correctSubmit(){
-  var firstRow = document.getElementById("first-row").children
-  var count = 0;
-  for (var i = 0; i < firstRow.length; i++){
-    if (firstRow[i].style.backgroundColor){
-      count++;
-    }
+function generateAnswer(){
+  for (var i = 0; i < 4; i++){
+    var rand = Math.floor(Math.random() * colors.length);
+    answer.push(colors[rand]);
   }
-  return count === 4 ? true : false;
+  console.log("Current answer is", answer);
+  return answer;
 }
 
-function submitEvent(){
-  if (correctSubmit()){
-    firstRow = document.getElementById("first-row").children;
-    for (var i = 0; i < firstRow.length; i++){
-      guess.push(firstRow[i].style.backgroundColor);
-    }
-  }
-}
-
-var myBtn = document.getElementById("submitButton");
-myBtn.addEventListener('click', function (event){
-    if (correctSubmit()){
-    firstRow = document.getElementById("first-row").children;
-    for (var i = 0; i < firstRow.length - 1; i++){
-      // hex = firstRow[i].style.backgroundColor;
-      firstRow[i].style.backgroundColor = "";
-      firstRow[i].style.backgroundImage = "url('wood_background2.jpg')";
-      // guess.push(parseCOLOR(COLORS, hex));
-    }
+function checkWin(){
+    if (guess.length === 4){
     var guesses = []
-    for (var i = 0; i < guess.length; i++){
-      guesses.push(parseCOLOR(COLORS, guess[i]))
-    }
-
+      for (var i = 0; i < guess.length; i++){
+        guesses.push(guess[i])
+      }
     wrongGuesses.push(guesses)
-    newGuessArray = guesses
-    codeCheck();
+   
+    newGuessArray = guesses;
+    compareToAnswer();
     guess = [];
-    render();
+    addClickHandler()
+    removeClickHandler()
   }
-});
+};
 
 function changeColor(el){
-  el.style.background = currentColor;
-  if (el.className === 'empty pos_0'){
+  el.classList.remove("empty");
+  el.classList.add("ball")
+  if (el.className === 'pos_0 ball'){
     guess[0] = currentColor;
-  } else if (el.className === 'empty pos_1'){
+  } else if (el.className === 'pos_1 ball'){
     guess[1] = currentColor;
-  } else if (el.className === 'empty pos_2'){
+  } else if (el.className === 'pos_2 ball'){
     guess[2] = currentColor;
-  } else if (el.className === 'empty pos_3'){
+  } else if (el.className === 'pos_3 ball'){
     guess[3] = currentColor;
   }
-  // console.log(guess)
+  el.style.background = currentColor;
+  console.log(guess)
 }
 
-function parseCOLOR(object, hex){
-  return Object.keys(object).find(key => object[key] === hex);
-}
-
-function generateCompCode(){
-  for (var i = 0; i < 4; i++){
-    var rand = Math.floor(Math.random() * Object.keys(COLORS).length);
-    code.push(Object.keys(COLORS)[rand]);
-  }
-  console.log("Current code is", code);
-  return code;
-}
-// var newGuessArray = []
-// for (var i = 0; i < guess.length; i++){
-//   newGuessArray.push(parseCOLOR(COLORS, guess[i]))
-// }
-
-function codeCheck(){
+function compareToAnswer(){
   var exact_count = 0;
   var near_count = 0;
-  var copyGuess = Object.assign([], newGuessArray)
-  var copyCode = Object.assign([], code)
-  for (var i = 0; i < copyCode.length; i ++){
-    if (copyCode[i] === copyGuess[i]){
-      copyCode[i] = NaN;
-      copyGuess[i] = NaN;
+  // var copyGuess = Object.assign([], newGuessArray)
+  var copyAnswer = Object.assign([], answer)
+  for (var i = 0; i < answer.length; i ++){
+    if (copyAnswer[i] === guess[i]){ 
+      guess[i]=NaN;
+      copyAnswer[i]=NaN;
       exact_count++;
     }
   }
-  for (var i = 0; i < copyCode.length; i ++){
-    if (copyCode.includes(copyGuess[i])){
+  
+  for (var i = 0; i < copyAnswer.length; i ++){
+    if (copyAnswer.includes(guess[i])){
       near_count++;
     }
   }
-  near_count = Math.abs(near_count - exact_count);
 
+  near_count = Math.abs(near_count - exact_count);
   checkWinner(exact_count, near_count)
 }
 
 function checkWinner(exact_count, near_count){
+ console.log(exact_count)
+ console.log(near_count)
+
   if (exact_count == 4){
     alert("You WON!")
-  } else {
+  } else if (wrongGuesses.length>=10){
+    alert("You lost!")
+  }else
+  {
     renderPegs(exact_count, near_count)
   }
 }
@@ -194,3 +153,8 @@ function checkWinner(exact_count, near_count){
 function renderPegs(exact_count, near_count){
   var pegs = document.querySelector("#peg-list");
 }
+
+createColorChoiceBoard()
+createBoard()
+generateAnswer();
+addClickHandler()
