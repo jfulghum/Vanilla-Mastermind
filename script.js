@@ -137,11 +137,11 @@ function changeColor(el){
 function compareToAnswer(){
   var exact_count = 0;
   var near_count = 0;
-  // var copyGuess = Object.assign([], newGuessArray)
-  var copyAnswer = Object.assign([], answer)
-  for (var i = 0; i < answer.length; i ++){
-    if (copyAnswer[i] === guess[i]){
-      guess[i]=NaN;
+  var copyGuess = guess.slice();
+  var copyAnswer = answer.slice();
+  for (var i = 0; i < copyAnswer.length; i++){
+    if (copyAnswer[i] === copyGuess[i]){
+      copyGuess[i]=NaN;
       copyAnswer[i]=NaN;
       exact_count++;
     }
@@ -153,14 +153,10 @@ function compareToAnswer(){
     }
   }
 
-  near_count = Math.abs(near_count - exact_count);
   checkWinner(exact_count, near_count)
 }
 
 function checkWinner(exact_count, near_count){
- console.log(exact_count)
- console.log(near_count)
-
   if (exact_count == 4){
     alert("You WON!")
   } else if (wrongGuesses.length>=10){
@@ -184,13 +180,7 @@ function renderPegs(exact_count, near_count){
   }
 }
 
-// function resetGame(){
-//   createColorChoiceBoard()
-//   createBoard()
-//   generateAnswer();
-//   addClickHandler();
-//
-// }
+
 
 
 createColorChoiceBoard()
