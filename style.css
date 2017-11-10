@@ -47,11 +47,24 @@ canvas {
 }
 
 .peg_list{
-  border: solid;
-  width: 30px;
-  height: 30px;
+  border-radius: 5px;
+  border: solid black 1px;
+  width: 33px;
+  height: 33px;
   float: left;
-  margin: 15px 15px 15px 15px;
+  margin: 16px;
+  margin-top: 19px;
+}
+
+.peg{
+  border: solid black 1px;
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  float: left;
+  margin: 3.5px;
+  background-image: url('wood_background2.jpg');
+
 }
 
 .invis_peg_list{
@@ -61,8 +74,11 @@ canvas {
   margin: 15px 15px 15px 15px;
 }
 
-.submitButton{
-
+button{
+  /*background-color: teal;
+  font-family: monospace;;
+  width: 70px;
+  height: 40px;*/
 }
 
 .ball {

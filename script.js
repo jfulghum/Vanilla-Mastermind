@@ -46,10 +46,10 @@ function createPegs() {
   var pegs = document.createElement("li");
   pegs.setAttribute("class", "peg_list")
   pegs.innerHTML =
-  '<div class = "peg0"></div>' +
-  '<div class = "peg1"></div>' +
-  '<div class = "peg2"></div>' +
-  '<div class = "peg3"></div>'
+  '<div class = "peg"></div>' +
+  '<div class = "peg"></div>' +
+  '<div class = "peg"></div>' +
+  '<div class = "peg"></div>'
   return pegs;
 }
 
@@ -58,11 +58,15 @@ function createBoard(){
   var empties = document.querySelector("#empties");
   for (var i = 0; i < 10; ++i) {
     empties.appendChild(createRow());
-    // var peg_list = document.getElementsByClassName("peg_list")
   }
   var my_peg_list = document.getElementsByTagName("ul")
   for (var i = 1; i <= 10; ++i) {
     my_peg_list[i].appendChild(createPegs());
+  }
+  var peg_lists = document.getElementsByClassName("peg_list")
+  console.log(peg_lists)
+  for (var i = 0; i < 10; ++i) {
+    peg_lists[i].setAttribute("id", "peg_list" + i)
   }
 }
 
@@ -114,19 +118,20 @@ function checkWin(){
 };
 
 function changeColor(el){
-  el.classList.remove("empty");
-  el.classList.add("ball")
-  if (el.className === 'pos_0 ball'){
-    guess[0] = currentColor;
-  } else if (el.className === 'pos_1 ball'){
-    guess[1] = currentColor;
-  } else if (el.className === 'pos_2 ball'){
-    guess[2] = currentColor;
-  } else if (el.className === 'pos_3 ball'){
-    guess[3] = currentColor;
+  if (currentColor){
+    el.classList.remove("empty");
+    el.classList.add("ball")
+    if (el.className === 'pos_0 ball'){
+      guess[0] = currentColor;
+    } else if (el.className === 'pos_1 ball'){
+      guess[1] = currentColor;
+    } else if (el.className === 'pos_2 ball'){
+      guess[2] = currentColor;
+    } else if (el.className === 'pos_3 ball'){
+      guess[3] = currentColor;
+    }
+    el.style.background = currentColor;
   }
-  el.style.background = currentColor;
-  console.log(guess)
 }
 
 function compareToAnswer(){
@@ -167,10 +172,20 @@ function checkWinner(exact_count, near_count){
 }
 
 function renderPegs(exact_count, near_count){
-  var pegs = document.querySelector("#peg-list");
-  // var element = document.getElementsByClassName('empty')[i]
-  // element.setAttribute("onClick", "changeColor(this)")
+  var pegs = document.querySelector("#peg_list" + (wrongGuesses.length - 1));
+  for (var i = 0; i < exact_count; i++){
+    pegs.children[i].style.background = "red";
+    pegs.children[i].style.border = "1px solid red";
+  }
+  var newCount = near_count + exact_count
+  for (var i = exact_count; i < newCount; i++){
+    pegs.children[i].style.background = "white";
+    pegs.children[i].style.border = "1px solid white"
+  }
 }
+
+
+
 
 createColorChoiceBoard()
 createBoard()
