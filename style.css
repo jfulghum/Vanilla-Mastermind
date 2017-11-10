@@ -12,6 +12,7 @@
 #game-box{
   width: 347px;
   background-image: url('wood-72380_1280.jpg');
+  background-position: 500px 170px; 
   border-radius: 25px;
   margin: 20px;
   padding: 10px;

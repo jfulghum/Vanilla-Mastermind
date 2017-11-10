@@ -184,7 +184,13 @@ function renderPegs(exact_count, near_count){
   }
 }
 
-
+// function resetGame(){
+//   createColorChoiceBoard()
+//   createBoard()
+//   generateAnswer();
+//   addClickHandler();
+//
+// }
 
 
 createColorChoiceBoard()
