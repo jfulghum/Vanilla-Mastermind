@@ -38,15 +38,31 @@ function createRow() {
   '<li class="empty pos_0"></li>' +
   '<li class="empty pos_1"></li>' +
   '<li class="empty pos_2"></li>' +
-  '<li class="empty pos_3"></li>'+
-  '<li class="peg_list"></li>'
+  '<li class="empty pos_3"></li>'
   return child;
 }
+
+function createPegs() {
+  var pegs = document.createElement("li");
+  pegs.setAttribute("class", "peg_list")
+  pegs.innerHTML =
+  '<div class = "peg0"></div>' +
+  '<div class = "peg1"></div>' +
+  '<div class = "peg2"></div>' +
+  '<div class = "peg3"></div>'
+  return pegs;
+}
+
 
 function createBoard(){
   var empties = document.querySelector("#empties");
   for (var i = 0; i < 10; ++i) {
     empties.appendChild(createRow());
+    // var peg_list = document.getElementsByClassName("peg_list")
+  }
+  var my_peg_list = document.getElementsByTagName("ul")
+  for (var i = 1; i <= 10; ++i) {
+    my_peg_list[i].appendChild(createPegs());
   }
 }
 
@@ -88,7 +104,7 @@ function checkWin(){
         guesses.push(guess[i])
       }
     wrongGuesses.push(guesses)
-   
+
     newGuessArray = guesses;
     compareToAnswer();
     guess = [];
@@ -119,13 +135,13 @@ function compareToAnswer(){
   // var copyGuess = Object.assign([], newGuessArray)
   var copyAnswer = Object.assign([], answer)
   for (var i = 0; i < answer.length; i ++){
-    if (copyAnswer[i] === guess[i]){ 
+    if (copyAnswer[i] === guess[i]){
       guess[i]=NaN;
       copyAnswer[i]=NaN;
       exact_count++;
     }
   }
-  
+
   for (var i = 0; i < copyAnswer.length; i ++){
     if (copyAnswer.includes(guess[i])){
       near_count++;
@@ -152,9 +168,11 @@ function checkWinner(exact_count, near_count){
 
 function renderPegs(exact_count, near_count){
   var pegs = document.querySelector("#peg-list");
+  // var element = document.getElementsByClassName('empty')[i]
+  // element.setAttribute("onClick", "changeColor(this)")
 }
 
 createColorChoiceBoard()
 createBoard()
 generateAnswer();
-addClickHandler()
+addClickHandler();
