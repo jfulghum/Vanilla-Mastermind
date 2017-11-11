@@ -93,9 +93,11 @@ function changeCursor(el){
 }
 
 function generateAnswer(){
-  for (var i = 0; i < 4; i++){
+  while(answer.length < 5){
     var rand = Math.floor(Math.random() * colors.length);
-    answer.push(colors[rand]);
+    if (!answer.includes(colors[rand])){
+      answer.push(colors[rand]);
+    }
   }
   console.log("Current answer is", answer);
   return answer;
