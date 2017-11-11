@@ -137,43 +137,43 @@ function changeColor(el){
 }
 
 function compareToAnswer(){
-  var exact_count = 0;
-  var near_count = 0;
+  var exactCount = 0;
+  var nearCount = 0;
   var copyAnswer = answer.slice();
   for (var i = 0; i < copyAnswer.length; i++){
     if (copyAnswer.includes(guess[i])){
       if (copyAnswer[i] === guess[i]){
         correctIndex = i
-        exact_count++;
+        exactCount++;
       } else {
         correctIndex = guess.indexOf(answer[i])
-        near_count++
+        nearCount++
       }
       copyAnswer[correctIndex] = "Accounted for"
     }
   }
-  checkWinner(exact_count, near_count)
+  checkWinner(exactCount, nearCount)
 }
 
-function checkWinner(exact_count, near_count){
-  if (exact_count == 4){
+function checkWinner(exactCount, nearCount){
+  if (exactCount == 4){
     alert("You WON!")
   } else if (wrongGuesses.length>=10){
     alert("You lost!")
   }else
   {
-    renderPegs(exact_count, near_count)
+    renderPegs(exactCount, nearCount)
   }
 }
 
-function renderPegs(exact_count, near_count){
+function renderPegs(exactCount, nearCount){
   var pegs = document.querySelector("#peg_list" + (wrongGuesses.length - 1));
-  for (var i = 0; i < exact_count; i++){
+  for (var i = 0; i < exactCount; i++){
     pegs.children[i].style.background = "red";
     pegs.children[i].style.border = "1px solid red";
   }
-  var newCount = near_count + exact_count
-  for (var i = exact_count; i < newCount; i++){
+  var newCount = nearCount + exactCount
+  for (var i = exactCount; i < newCount; i++){
     pegs.children[i].style.background = "white";
     pegs.children[i].style.border = "1px solid white"
   }
