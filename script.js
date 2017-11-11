@@ -93,7 +93,7 @@ function changeCursor(el){
 }
 
 function generateAnswer(){
-  while(answer.length < 5){
+  while(answer.length < 4){
     var rand = Math.floor(Math.random() * colors.length);
     // if (!answer.includes(colors[rand])){
       answer.push(colors[rand]);
@@ -139,17 +139,21 @@ function changeColor(el){
 function compareToAnswer(){
   var exactCount = 0;
   var nearCount = 0;
-  var copyAnswer = answer.slice();
-  for (var i = 0; i < copyAnswer.length; i++){
-    if (copyAnswer.includes(guess[i])){
-      if (copyAnswer[i] === guess[i]){
-        correctIndex = i
-        exactCount++;
-      } else {
-        correctIndex = guess.indexOf(answer[i])
+  var dupAnswer = answer.slice();
+  var dupGuess = guess.slice();
+  for (var i = 0; i < answer.length; i++){
+    if (dupAnswer[i] === dupGuess[i]){
+      exactCount++;
+      dupAnswer[i] = NaN;
+      dupGuess[i] = NaN;
+    }
+  }
+  for (var i = 0; i < answer.length; i++){
+    for (var j = 0; j < answer.length; j++){
+      if (dupAnswer[i] === dupGuess[j]){
         nearCount++
+        dupAnswer[i] = NaN;
       }
-      copyAnswer[correctIndex] = "Accounted for"
     }
   }
   checkWinner(exactCount, nearCount)
