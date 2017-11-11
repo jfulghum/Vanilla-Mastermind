@@ -184,8 +184,6 @@ function renderPegs(exactCount, nearCount){
 }
 
 
-
-
 createColorChoiceBoard()
 createBoard()
 generateAnswer();

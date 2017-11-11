@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   background: #efb1a6;
-  background-repeat: no-repeat;}
+  background-repeat: no-repeat;
+}
 
 #li{
   list-style-type: none;
@@ -16,6 +17,10 @@
   border-radius: 25px;
   margin: 20px;
   padding: 10px;
+}
+
+#directions {
+  cursor: default;
 }
 
 ul {
