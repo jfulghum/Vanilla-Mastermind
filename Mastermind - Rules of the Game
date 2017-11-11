@@ -1,7 +1,7 @@
 Mastermind - Rules of the game.
 
  	
-- The computer picks a sequence of colors. The number of colors is the code length. The default code length is 4 but it can be changed when starting a new game.
+- The computer picks a sequence of colors. The number of colors is the code length. 
 
 - The objective of the game is to guess the exact positions of the colors in the computer's sequence.
 
