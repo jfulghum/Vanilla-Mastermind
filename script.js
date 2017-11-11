@@ -95,9 +95,9 @@ function changeCursor(el){
 function generateAnswer(){
   while(answer.length < 5){
     var rand = Math.floor(Math.random() * colors.length);
-    if (!answer.includes(colors[rand])){
+    // if (!answer.includes(colors[rand])){
       answer.push(colors[rand]);
-    }
+    // }
   }
   console.log("Current answer is", answer);
   return answer;
@@ -139,22 +139,19 @@ function changeColor(el){
 function compareToAnswer(){
   var exact_count = 0;
   var near_count = 0;
-  var copyGuess = guess.slice();
   var copyAnswer = answer.slice();
   for (var i = 0; i < copyAnswer.length; i++){
-    if (copyAnswer[i] === copyGuess[i]){
-      copyGuess[i]=NaN;
-      copyAnswer[i]=NaN;
-      exact_count++;
-    }
-  }
-
-  for (var i = 0; i < copyAnswer.length; i ++){
     if (copyAnswer.includes(guess[i])){
-      near_count++;
+      if (copyAnswer[i] === guess[i]){
+        correctIndex = i
+        exact_count++;
+      } else {
+        correctIndex = guess.indexOf(answer[i])
+        near_count++
+      }
+      copyAnswer[correctIndex] = "Accounted for"
     }
   }
-
   checkWinner(exact_count, near_count)
 }
 
