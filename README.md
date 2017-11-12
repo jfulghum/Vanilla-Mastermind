@@ -1,7 +1,5 @@
 This Mastermind game was pair-programmed in vanilla Javascript, HTML5 and CSS3 by Johanna Fulghum and Giulia Lake.
 
-![alt text](https://raw.githubusercontent.com/jfulghum/Vanilla-Mastermind/img.png)
-
 We used HTML5 canvas to render the cursor balls, styled the game using CSS, and wrote the game logic and rendered the game using vanilla Javascript.
 
 For further improvements:
