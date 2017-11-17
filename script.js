@@ -112,7 +112,7 @@ function checkWin(){
     wrongGuesses.push(guesses)
 
     newGuessArray = guesses;
-    compareToAnswer();
+    compareToAnswer(answer, guess);
     guess = [];
     addClickHandler()
     removeClickHandler()
@@ -136,7 +136,7 @@ function changeColor(el){
   }
 }
 
-function compareToAnswer(){
+function compareToAnswer(answer, guess){
   var exactCount = 0;
   var nearCount = 0;
   var dupAnswer = answer.slice();
@@ -153,6 +153,7 @@ function compareToAnswer(){
       if (dupAnswer[i] === dupGuess[j]){
         nearCount++
         dupAnswer[i] = NaN;
+        dupGuess[i] = NaN;
       }
     }
   }

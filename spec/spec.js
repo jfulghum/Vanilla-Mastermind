@@ -18,6 +18,7 @@
         if (dupAnswer[i] === dupGuess[j]){
           nearCount++
           dupAnswer[i] = NaN;
+          dupGuess[j] = NaN;
         }
       }
     }
@@ -40,13 +41,14 @@
   let codeDad = ["#008000", "#008000","#0000ff", "#800080"]// "RRBP"
   let guessDad1 = ["#0000ff", "#008000", "#00ff00", "#ffff00"]// "BRGY"
   let guessDad2 = ["#ffff00", "#0000ff", "#800080", "#ffa500"] // "YBPO"
-  let guessDad3 = ["#0000ff", "#008000", "#008000", "#00ff00"]// "BRRG"
+  let guessDad3 = ["#0000ff", "#008000", "#008000", "#00ff00"] // "BRRG"
+  let guessDad4 = ["#000000", "#008000", "#00ff00", "#ffff00"] //  KRGY
 
 
 describe("compareToAnswer", function() {
-  it("should return 0, 0 when none of the correct colors appear"), function() {
-    expect(compareToAnswer(code1, guess3)).toEqual(0, 0);
-  } // BBBB : GYOR
+  it("should return 0, 0 when none of the correct colors appear", function() {
+    expect(compareToAnswer(code1, guess3)).toEqual([0, 0]);
+  }) // BBBB : GYOR
 
   it("should return exactMatches as 0 when the correct colors appear in the wrong positions", function() {
       expect(compareToAnswer(code2, guess4)).toEqual([0, 4]);
@@ -69,8 +71,8 @@ describe("compareToAnswer", function() {
   }) // GOYP : KBOO //
 
   it("should return correct number of nearMatches when none are near just exact", function() {
-    expect(compareToAnswer(codeDad, guessDad1)).toEqual([1, 0]);
-  }) // RRBP : BRGY
+    expect(compareToAnswer(codeDad, guessDad4)).toEqual([1, 0]);
+  }) // RRBP : KRGY
 
   it("should return correct number of nearMatches when two are right color, wrong spot", function() {
     expect(compareToAnswer(codeDad, guessDad2)).toEqual([0, 2]);
