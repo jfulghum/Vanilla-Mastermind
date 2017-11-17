@@ -153,7 +153,7 @@ function compareToAnswer(answer, guess){
       if (dupAnswer[i] === dupGuess[j]){
         nearCount++
         dupAnswer[i] = NaN;
-        dupGuess[i] = NaN;
+        dupGuess[j] = NaN;
       }
     }
   }
@@ -164,7 +164,8 @@ function checkWinner(exactCount, nearCount){
   if (exactCount == 4){
     alert("You WON!")
   } else if (wrongGuesses.length>=10){
-    alert("You lost!")
+    alert(`You lost! Here is the code: ${answer}`)
+
   }else
   {
     renderPegs(exactCount, nearCount)

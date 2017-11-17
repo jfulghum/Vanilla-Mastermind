@@ -1,5 +1,8 @@
-// (function() {
-//   'use strict';
+
+// var rewire = require("rewire");
+// var script = rewire("../script.js");
+//
+// var compareToAnswer = script.__get__("compareToAnswer");
 
   function compareToAnswer(answer, guess){
     var exactCount = 0;

@@ -1,0 +1,25 @@
+{
+  "name": "vanilla-mastermind",
+  "description": "This Mastermind game was pair-programmed in vanilla Javascript, HTML5 and CSS3 by Johanna Fulghum and Giulia Lake.",
+  "version": "1.0.0",
+  "main": "script.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfulghum/Vanilla-Mastermind.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfulghum/Vanilla-Mastermind/issues"
+  },
+  "homepage": "https://github.com/jfulghum/Vanilla-Mastermind#readme",
+  "dependencies": {
+    "rewire": "^3.0.1"
+  }
+}
