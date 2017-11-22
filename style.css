@@ -10,6 +10,12 @@
   list-style-type: none;
 }
 
+#directionsLink{
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+}
+
 #game-box{
   width: 347px;
   background-image: url('gameBoxImage.jpg');
@@ -81,10 +87,13 @@ canvas {
 }
 
 button{
-  /*background-color: teal;
-  font-family: monospace;;
-  width: 70px;
-  height: 40px;*/
+  /*background-color: teal;*/
+  font-family: monospace;
+  margin: 26px;
+  margin-left: 146px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 .ball {
