@@ -7,36 +7,102 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
   <div id="ultimate-container">
 
     <div id="game-box">
       <div id="color-choice-list">
         <ul id="color-list">
-          <li> <canvas class="" id="canv0" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv1" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv2" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv3" width = "50" height = "50" ></canvas></li>
-          <li class='invis_peg_list' ></li>
-          <li> <canvas class="" id="canv4" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv5" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv6" width = "50" height = "50" ></canvas></li>
-          <li> <canvas class="" id="canv7" width = "50" height = "50" ></canvas></li>
+          <li>
+            <canvas class="" id="canv0" width="50" height="50"></canvas>
+          </li>
+          <li>
+            <canvas class="" id="canv1" width="50" height="50"></canvas>
+          </li>
+          <li>
+            <canvas class="" id="canv2" width="50" height="50"></canvas>
+          </li>
+          <li>
+            <canvas class="" id="canv3" width="50" height="50"></canvas>
+          </li>
+          <li class='invis_peg_list'></li>
+          <li>
+            <canvas class="" id="canv4" width="50" height="50"></canvas>
+          </li>
+          <li>
+            <canvas class="" id="canv5" width="50" height="50"></canvas>
+          </li>
+          <li>
+            <canvas class="" id="canv6" width="50" height="50"></canvas>
+          </li>
+          <li>
+            <canvas class="" id="canv7" width="50" height="50"></canvas>
+          </li>
           <li class='invis_peg_list'></li>
         </ul>
       </div>
       <div id="empties">
       </div>
     </div>
+    <div class="modal" id="myModal">
+      <span class="close cursor" onClick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <h2> Mastermind - Rules of the game</h2>
 
-      <div id="directions">
-        <img src="Mastermind.png"></img>
-        <div id="directionsLink">
-        <a href="directions.html">How to Play Mastermind</a>
+
+        <p> The computer randomly picks a sequence of colors. For example: the secret code is purple, red, orange, yellow: </p>
+        <div id="computerCodeExample">
+          <img src="computerCodeExample.png"></img>
         </div>
-        <div id="submitButton" onClick="checkWin()" >
-          <button>Guess</button>
+
+        <p> The objective of the game is to guess the exact positions of the colors in the computer's sequence.</p>
+
+        <p> After filling a line with your guesses and clicking on the 'Guess' button, the computer responses with the result
+          of your guess. Here is a sample guess: </p>
+        <div id="computerCodeExample">
+          <img src="RedPegSample.png"></img>
         </div>
+
+        <p> For each color in your guess that is in the correct color and correct position in the code sequence, the computer
+          display a small red peg on the right side of the current guess. This guess has one correct color in the right place,
+          so gives one red peg.</p>
+
+
+        <p> For each color in your guess that is in the correct color but is NOT in the correct position in the code sequence,
+          the computer display a small white color on the right side of the current guess.</p>
+
+        <div id="computerCodeExample">
+          <img src="whitePegSample.png"></img>
+        </div>
+
+        <p> You win the game when you manage to guess all the colors in the code sequence and when they all in the right position.</p>
+
+        <p> You lose the game if you use all attempts without guessing the computer code sequence.</p>
+
+        <p> Any color can be used any number of times in the code sequence. For example this is a valid secret code: </p>
+
+        <div id="computerCodeExample">
+          <img src="dupCodeExample.png"></img>
+        </div>
+
+        <p> After filling a whole line, you can still change your selection before asking the computer to respond to your guess.
+          When you're satisfied with your guess, just click on the 'Check' button and get the computer response.</p>
+
+        <p>- Good Luck!!</p>
+
+      </div>
+    </div>
+
+    <div id="directions">
+      <img src="Mastermind.png"></img>
+      <div id="directionsLink" onClick="openModal(this)">
+          How to Play Mastermind
+        <!-- <a href="directions.html">How to Play Mastermind</a> -->
+      </div>
+      <div id="submitButton" onClick="checkWin()">
+        <button>Guess</button>
+      </div>
     </div>
 
   </div>
