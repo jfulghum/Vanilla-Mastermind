@@ -74,7 +74,8 @@ function createBoard(){
 function addClickHandler(){
   for (var i = 0; i < 4; i++){
     var element = document.getElementsByClassName('empty')[i]
-    element.setAttribute("onClick", "changeColor(this)")
+    element.setAttribute("onClick", "changeColor(this)");
+    element.classList.add("active")
   }
 }
 
@@ -122,6 +123,7 @@ function checkWin(){
 function changeColor(el){
   if (currentColor){
     el.classList.remove("empty");
+    el.classList.remove("active");
     el.classList.add("ball")
     if (el.className === 'pos_0 ball'){
       guess[0] = currentColor;
