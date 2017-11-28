@@ -130,6 +130,9 @@ button{
   background-color: white;
   border:2px solid brown;
 }
+.modal:hover{
+  cursor: default;
+}
 .close {
   position: absolute;
   top: 10px;
