@@ -40,6 +40,12 @@ canvas {
   margin: 10px;
 }
 
+canvas:hover {
+  border:2px solid brown;
+  border-radius: 50%;
+  margin:8px;
+}
+
 .color {
   width: 40px;
   height: 40px;
