@@ -7,8 +7,8 @@ var newGuessArray = []
 
 var colors = [
   "#40e0d0",
-  "#000000",
-  "#800080",
+  "#d3d3d3",
+  "#c11cc1",
   "#ffa500",
   "#0000ff",
   "#ff0000",
