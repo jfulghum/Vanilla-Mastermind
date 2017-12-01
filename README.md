@@ -2,7 +2,7 @@ This Mastermind game was pair-programmed in vanilla Javascript, HTML5 and CSS3 b
 
 We used HTML5 canvas to render the cursor balls, styled the game using CSS, and wrote the game logic and rendered the game using vanilla Javascript.
 
-I also included a robust suite of tests in Jasmine to prove functionality.
+The game also features a test suite in Jasmine to ensure correct the game logic and functionality.
 
 For further improvements:
 Link to a separate page that has the rules of the game. We purposely decided not to crowd the screen with the instructions.
