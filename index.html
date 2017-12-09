@@ -9,8 +9,18 @@
 </head>
 
 <body>
+  
   <div id="ultimate-container">
-
+    <div id="directions">
+      <img src="Mastermind.png"></img>
+  
+      <div id="directionsLink" onClick="openModal(this)">
+          How to Play Mastermind
+      </div>
+      <!-- <div id="submitButton" onClick="checkWin()">
+        <button>Guess</button>
+      </div> -->
+    </div>
     <div id="game-box">
       <div id="color-choice-list">
         <ul id="color-list">
@@ -39,7 +49,10 @@
           <li>
             <canvas class="" id="canv7" width="50" height="50"></canvas>
           </li>
-          <li class='invis_peg_list'></li>
+          <!-- <li class='invis_peg_list'></li> -->
+          <div id="submitButton" onClick="checkWin()">
+            <button>Guess</button>
+          </div>
         </ul>
       </div>
       <div id="empties">
@@ -94,16 +107,7 @@
       </div>
     </div>
 
-    <div id="directions">
-      <img src="Mastermind.png"></img>
-      <div id="directionsLink" onClick="openModal(this)">
-          How to Play Mastermind
-        <!-- <a href="directions.html">How to Play Mastermind</a> -->
-      </div>
-      <div id="submitButton" onClick="checkWin()">
-        <button>Guess</button>
-      </div>
-    </div>
+  
 
   </div>
   <script src="script.js"></script>

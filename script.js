@@ -16,6 +16,17 @@ var colors = [
   "#ffff00"
 ]
 
+var colorsObject = {
+  "#40e0d0": "Turquoise",
+  "#d3d3d3": "Grey",
+  "#c11cc1": "Purple",
+  "#ffa500": "Orange",
+  "#0000ff": "Blue",
+  "#ff0000": "Red",
+  "#008000": "Green",
+  "#ffff00": "Yellow"
+}
+
 function createColorChoiceElement(id,color){
     var c = document.getElementById(id);
     var ctx = c.getContext("2d");
@@ -52,7 +63,6 @@ function createPegs() {
   '<div class = "peg"></div>'
   return pegs;
 }
-
 
 function createBoard(){
   var empties = document.querySelector("#empties");
@@ -96,9 +106,7 @@ function changeCursor(el){
 function generateAnswer(){
   while(answer.length < 4){
     var rand = Math.floor(Math.random() * colors.length);
-    // if (!answer.includes(colors[rand])){
       answer.push(colors[rand]);
-    // }
   }
   console.log("Current answer is", answer);
   return answer;
@@ -166,7 +174,11 @@ function checkWinner(exactCount, nearCount){
   if (exactCount == 4){
     alert("You WON!")
   } else if (wrongGuesses.length>=10){
-    alert(`You lost! Here is the code: ${answer}`)
+    var stringAnswer = ""
+    for (var i = 0; i < answer.length; i++){
+      stringAnswer += colorsObject[answer[i]] + " "
+    }
+    alert(`You lost! Here is the code: ${stringAnswer}`)
 
   }else
   {

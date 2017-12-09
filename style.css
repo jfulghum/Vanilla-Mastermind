@@ -1,9 +1,19 @@
+body{
+  background: #efb1a6;
+}
+
 #ultimate-container{
   min-height: 500px;
-  display: flex;
+  /*display: flex;*/
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
   justify-content: center;
   background: #efb1a6;
   background-repeat: no-repeat;
+}
+
+img{
+  
 }
 
 #li{
@@ -14,7 +24,7 @@
   display: flex;
   justify-content: center;
   font-family: monospace;
-  border:1px solid black;
+  /*border:1px solid black;*/
 }
 
 #game-box{
@@ -28,6 +38,7 @@
 
 #directions {
   cursor: default;
+  text-align: center;
 }
 
 ul {
@@ -41,9 +52,6 @@ canvas {
 }
 
 canvas:hover {
-  /*border:2px solid brown;
-  border-radius: 50%;
-  margin:8px;*/
   filter: brightness(65%);
 }
 
