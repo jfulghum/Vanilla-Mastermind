@@ -7,9 +7,9 @@ var newGuessArray = []
 
 var colors = [
   "#40e0d0",
-  "#d3d3d3",
+  "#ffffff",
   "#c11cc1",
-  "#ffa500",
+  "#000000",
   "#0000ff",
   "#ff0000",
   "#008000",
@@ -18,9 +18,9 @@ var colors = [
 
 var colorsObject = {
   "#40e0d0": "Turquoise",
-  "#d3d3d3": "Grey",
+  "#ffffff": "Grey",
   "#c11cc1": "Purple",
-  "#ffa500": "Orange",
+  "#000000": "Black",
   "#0000ff": "Blue",
   "#ff0000": "Red",
   "#008000": "Green",
@@ -63,6 +63,7 @@ function createPegs() {
   '<div class = "peg"></div>'
   return pegs;
 }
+
 
 function createBoard(){
   var empties = document.querySelector("#empties");
@@ -180,8 +181,30 @@ function checkWinner(exactCount, nearCount){
     }
     alert(`You lost! Here is the code: ${stringAnswer}`)
 
-  }else
-  {
+  } else if (nearCount === 0){
+      var element = document.getElementById('game-box')
+      var tl = new TimelineMax();
+      tl.to(element, .1, {
+        x: "+=10",
+        delay: .3
+      })
+      .to(element, .1, {
+        x: "-=20"
+      })
+      tl.to(element, .1, {
+        x: "+=20"
+      })
+      .to(element, .05, {
+        x: "-=15"
+      })
+      tl.to(element, .05, {
+        x: "+=15"
+      })
+      .to(element, .1, {
+        x: "-=10",
+        ease: Back.easeOut
+      })
+  } else {
     renderPegs(exactCount, nearCount)
   }
 }

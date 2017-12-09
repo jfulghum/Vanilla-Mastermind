@@ -4,16 +4,10 @@ body{
 
 #ultimate-container{
   min-height: 500px;
-  /*display: flex;*/
   display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
   justify-content: center;
-  background: #efb1a6;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
   background-repeat: no-repeat;
-}
-
-img{
-  
 }
 
 #li{
@@ -23,8 +17,12 @@ img{
 #directionsLink{
   display: flex;
   justify-content: center;
-  font-family: monospace;
-  /*border:1px solid black;*/
+  font-family: 'Spectral SC', serif;
+  padding-top: 10px;
+}
+
+#directionsLink:hover {
+  text-decoration: underline;
 }
 
 #game-box{
@@ -39,7 +37,7 @@ img{
 #directions {
   cursor: default;
   text-align: center;
-  font-size: 20px
+  font-size: 20px;
 }
 
 ul {
@@ -108,8 +106,10 @@ canvas:hover {
 }
 
 button{
-  /*background-color: teal;*/
-  font-family: monospace;
+  font-family: 'Spectral SC', serif;
+  color: black;
+  background-color: #efb1a6;
+  border: black;
   margin: 26px;
   margin-left: 146px;
   font-size: 16px;
