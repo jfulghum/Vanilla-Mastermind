@@ -39,6 +39,7 @@ img{
 #directions {
   cursor: default;
   text-align: center;
+  font-size: 20px
 }
 
 ul {
