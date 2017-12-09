@@ -72,10 +72,6 @@ canvas:hover {
   box-shadow: inset 15px 15px 30px rgba(0,0,0,.1);
   background-image: url('pegPhoto.jpg');
 }
-.active:hover{
- border:2px solid red;
-  margin: 13px;
-}
 
 .peg_list{
   border-radius: 5px;
