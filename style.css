@@ -1,8 +1,12 @@
+body{
+  background: #efb1a6;
+}
+
 #ultimate-container{
   min-height: 500px;
-  display: flex;
+  display: grid;
   justify-content: center;
-  background: #efb1a6;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
   background-repeat: no-repeat;
 }
 
@@ -13,8 +17,12 @@
 #directionsLink{
   display: flex;
   justify-content: center;
-  font-family: monospace;
-  border:1px solid black;
+  font-family: 'Spectral SC', serif;
+  padding-top: 10px;
+}
+
+#directionsLink:hover {
+  text-decoration: underline;
 }
 
 #game-box{
@@ -28,6 +36,8 @@
 
 #directions {
   cursor: default;
+  text-align: center;
+  font-size: 20px;
 }
 
 ul {
@@ -41,9 +51,6 @@ canvas {
 }
 
 canvas:hover {
-  /*border:2px solid brown;
-  border-radius: 50%;
-  margin:8px;*/
   filter: brightness(65%);
 }
 
@@ -99,8 +106,10 @@ canvas:hover {
 }
 
 button{
-  /*background-color: teal;*/
-  font-family: monospace;
+  font-family: 'Spectral SC', serif;
+  color: black;
+  background-color: #efb1a6;
+  border: black;
   margin: 26px;
   margin-left: 146px;
   font-size: 16px;

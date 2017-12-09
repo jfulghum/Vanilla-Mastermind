@@ -5,12 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js">  
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|Spectral+SC" rel="stylesheet">
   <title>Document</title>
 </head>
 
 <body>
+  
   <div id="ultimate-container">
-
+    <div id="directions">
+      <!-- <img src="Mastermind.png"></img> -->
+      <div id="directionsLink" onClick="openModal(this)">
+          How to Play Mastermind
+      </div>
+    </div>
     <div id="game-box">
       <div id="color-choice-list">
         <ul id="color-list">
@@ -39,7 +48,10 @@
           <li>
             <canvas class="" id="canv7" width="50" height="50"></canvas>
           </li>
-          <li class='invis_peg_list'></li>
+          <!-- <li class='invis_peg_list'></li> -->
+          <div id="submitButton" onClick="checkWin()">
+            <button>Guess</button>
+          </div>
         </ul>
       </div>
       <div id="empties">
@@ -80,11 +92,7 @@
 
         <p> You lose the game if you use all attempts without guessing the computer code sequence.</p>
 
-        <p> Any color can be used any number of times in the code sequence. For example this is a valid secret code: </p>
-
-        <div id="computerCodeExample">
-          <img src="dupCodeExample.png"></img>
-        </div>
+        <p> Any color can be used any number of times in the code sequence.  </p>
 
         <p> After filling a whole line, you can still change your selection before asking the computer to respond to your guess.
           When you're satisfied with your guess, just click on the 'Check' button and get the computer response.</p>
@@ -94,16 +102,7 @@
       </div>
     </div>
 
-    <div id="directions">
-      <img src="Mastermind.png"></img>
-      <div id="directionsLink" onClick="openModal(this)">
-          How to Play Mastermind
-        <!-- <a href="directions.html">How to Play Mastermind</a> -->
-      </div>
-      <div id="submitButton" onClick="checkWin()">
-        <button>Guess</button>
-      </div>
-    </div>
+  
 
   </div>
   <script src="script.js"></script>

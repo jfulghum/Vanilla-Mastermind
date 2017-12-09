@@ -7,14 +7,25 @@ var newGuessArray = []
 
 var colors = [
   "#40e0d0",
-  "#d3d3d3",
+  "#ffffff",
   "#c11cc1",
-  "#ffa500",
+  "#000000",
   "#0000ff",
   "#ff0000",
   "#008000",
   "#ffff00"
 ]
+
+var colorsObject = {
+  "#40e0d0": "Turquoise",
+  "#ffffff": "Grey",
+  "#c11cc1": "Purple",
+  "#000000": "Black",
+  "#0000ff": "Blue",
+  "#ff0000": "Red",
+  "#008000": "Green",
+  "#ffff00": "Yellow"
+}
 
 function createColorChoiceElement(id,color){
     var c = document.getElementById(id);
@@ -96,9 +107,7 @@ function changeCursor(el){
 function generateAnswer(){
   while(answer.length < 4){
     var rand = Math.floor(Math.random() * colors.length);
-    // if (!answer.includes(colors[rand])){
       answer.push(colors[rand]);
-    // }
   }
   console.log("Current answer is", answer);
   return answer;
@@ -166,10 +175,36 @@ function checkWinner(exactCount, nearCount){
   if (exactCount == 4){
     alert("You WON!")
   } else if (wrongGuesses.length>=10){
-    alert(`You lost! Here is the code: ${answer}`)
+    var stringAnswer = ""
+    for (var i = 0; i < answer.length; i++){
+      stringAnswer += colorsObject[answer[i]] + " "
+    }
+    alert(`You lost! Here is the code: ${stringAnswer}`)
 
-  }else
-  {
+  } else if (nearCount === 0){
+      var element = document.getElementById('game-box')
+      var tl = new TimelineMax();
+      tl.to(element, .1, {
+        x: "+=10",
+        delay: .3
+      })
+      .to(element, .1, {
+        x: "-=20"
+      })
+      tl.to(element, .1, {
+        x: "+=20"
+      })
+      .to(element, .05, {
+        x: "-=15"
+      })
+      tl.to(element, .05, {
+        x: "+=15"
+      })
+      .to(element, .1, {
+        x: "-=10",
+        ease: Back.easeOut
+      })
+  } else {
     renderPegs(exactCount, nearCount)
   }
 }
