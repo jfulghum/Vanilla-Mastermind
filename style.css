@@ -27,7 +27,7 @@ body{
 
 #game-box{
   width: 347px;
-  background-image: url('gameBoxImage.jpg');
+  background-image: url('./images/gameBoxImage.jpg');
   background-position: 500px 170px;
   border-radius: 25px;
   margin: 20px;
@@ -70,7 +70,7 @@ canvas:hover {
   float: left;
   margin: 15px 15px 15px 15px;
   box-shadow: inset 15px 15px 30px rgba(0,0,0,.1);
-  background-image: url('pegPhoto.jpg');
+  background-image: url('./images/pegPhoto.jpg');
 }
 
 .peg_list{
@@ -89,9 +89,8 @@ canvas:hover {
   width: 7px;
   height: 7px;
   float: left;
-  margin: 3.5px;
-  background-image: url('pegPhoto.jpg');
-
+  margin: 3.6px;
+  background-image: url('./images/pegPhoto.jpg');
 }
 
 .invis_peg_list{
@@ -110,7 +109,7 @@ button{
   margin-left: 146px;
   font-size: 16px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .ball {
