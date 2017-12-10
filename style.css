@@ -122,11 +122,9 @@ button{
   color: black;
   background-color: #efb1a6;
   border: black;
-  margin: 26px;
-  margin-left: 146px;
-  font-size: 16px;
-  display: flex;
-  justify-content: flex-end;
+  font-size: inherit;
+  width: 16%;
+  height: 80%;
 }
 
 .ball {
@@ -162,10 +160,10 @@ button{
   font-size: 35px;
   font-weight: bold;
 }
-
+/*
 @media (max-width: 500px) {
   .button {
     width: 50%;
     height: 50%;
   }
-}
+}*/
