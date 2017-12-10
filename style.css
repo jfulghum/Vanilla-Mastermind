@@ -1,5 +1,22 @@
 body{
   background: #efb1a6;
+  font-family: 'Spectral SC', serif;
+  font-size: 80%;
+}
+
+p {
+    font-family: 'Barlow Semi Condensed', serif;
+    text-align: center;
+}
+.directionpics{
+  -ms-transform: scale(width,height); /* IE 9 */
+  -webkit-transform: scale(width,height); /* Safari */
+  transform: scale(width, height);
+}
+
+modal-content {
+  display: flex;
+  justify-content: center;
 }
 
 #ultimate-container{

@@ -60,31 +60,22 @@
     <div class="modal" id="myModal">
       <span class="close cursor" onClick="closeModal()">&times;</span>
       <div class="modal-content">
-        <h2> Mastermind - Rules of the game</h2>
-
-
-        <p> The computer randomly picks a sequence of colors. For example: the secret code is purple, red, orange, yellow: </p>
-        <div id="computerCodeExample">
+        <h2> Mastermind Rules of the Game</h2>
+        <p> The computer randomly picks a sequence of colors, such as the sequence below: </p>
+        <div class= "directionpics" id="computerCodeExample">
           <img src="./images/computerCodeExample.png"></img>
         </div>
 
-        <p> The objective of the game is to guess the exact positions of the colors in the computer's sequence.</p>
-
-        <p> After filling a line with your guesses and clicking on the 'Guess' button, the computer responses with the result
-          of your guess. Here is a sample guess: </p>
-        <div id="computerCodeExample">
+        <p> The objective of the game is to guess the exact positions of the colors in the computer's sequence. After filling a line with your guesses and clicking on the 'Guess' button, the computer responses with the result
+          of your guess. </p>
+        <div class= "directionpics" id="computerCodeExample">
           <img src="./images/RedPegSample.png"></img>
         </div>
-
-        <p> For each color in your guess that is in the correct color and correct position in the code sequence, the computer
-          display a small red peg on the right side of the current guess. This guess has one correct color in the right place,
-          so gives one red peg.</p>
-
-
+        <p> For each color in your guess that is in the correct color and correct position in the code sequence, the computer display a small red peg on the right side of the current guess. This guess has one correct color in the right place, so gives one red peg.</p>
         <p> For each color in your guess that is in the correct color but is NOT in the correct position in the code sequence,
-          the computer display a small white color on the right side of the current guess.</p>
+          the computer display a small white peg on the right side of the current guess. For example two white pegs mean you have two correct colors, but they are in the wrong spot.</p>
 
-        <div id="computerCodeExample">
+        <div class= "directionpics" id="computerCodeExample">
           <img src="./images/whitePegSample.png"></img>
         </div>
 
@@ -95,9 +86,9 @@
         <p> Any color can be used any number of times in the code sequence.  </p>
 
         <p> After filling a whole line, you can still change your selection before asking the computer to respond to your guess.
-          When you're satisfied with your guess, just click on the 'Check' button and get the computer response.</p>
+          When you're satisfied with your guess, just click on the 'Guess' button and get the computer response.</p>
 
-        <p>- Good Luck!!</p>
+        <p>- Good Luck!</p>
 
       </div>
     </div>
