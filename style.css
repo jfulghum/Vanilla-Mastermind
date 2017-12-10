@@ -8,11 +8,6 @@ p {
     font-family: 'PT Sans', sans-serif;
     text-align: center;
 }
-.directionpics{
-  -ms-transform: scale(width,height); /* IE 9 */
-  -webkit-transform: scale(width,height); /* Safari */
-  transform: scale(width, height);
-}
 
 modal-content {
   display: flex;

@@ -190,6 +190,17 @@ function checkWinner(exactCount, nearCount){
 }
 
 function renderPegs(exactCount, nearCount){
+
+  var pegs = document.querySelector("#peg_list" + (wrongGuesses.length - 1));
+  for (var i = 0; i < exactCount; i++){
+    pegs.children[i].style.background = "red";
+    pegs.children[i].style.border = "1px solid red";
+  }
+  var newCount = nearCount + exactCount
+  for (var i = exactCount; i < newCount; i++){
+    pegs.children[i].style.background = "white";
+    pegs.children[i].style.border = "1px solid white"
+  }
   if (nearCount === 0 && exactCount === 0){
       var element = document.getElementById('game-box')
       var tl = new TimelineMax();
@@ -212,16 +223,6 @@ function renderPegs(exactCount, nearCount){
       .to(element, .05, {
         x: "-=10",
       })
-  }
-  var pegs = document.querySelector("#peg_list" + (wrongGuesses.length - 1));
-  for (var i = 0; i < exactCount; i++){
-    pegs.children[i].style.background = "red";
-    pegs.children[i].style.border = "1px solid red";
-  }
-  var newCount = nearCount + exactCount
-  for (var i = exactCount; i < newCount; i++){
-    pegs.children[i].style.background = "white";
-    pegs.children[i].style.border = "1px solid white"
   }
 }
 
