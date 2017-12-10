@@ -18,7 +18,7 @@ var colors = [
 
 var colorsObject = {
   "#40e0d0": "Turquoise",
-  "#ffffff": "Grey",
+  "#ffffff": "White",
   "#c11cc1": "Purple",
   "#000000": "Black",
   "#0000ff": "Blue",
@@ -109,7 +109,11 @@ function generateAnswer(){
     var rand = Math.floor(Math.random() * colors.length);
       answer.push(colors[rand]);
   }
-  console.log("Current answer is", answer);
+  var stringAnswer = ""
+  for (var i = 0; i < answer.length; i++){
+    stringAnswer += colorsObject[answer[i]] + " "
+  }
+  console.log("Current answer is", stringAnswer);
   return answer;
 }
 
@@ -180,8 +184,13 @@ function checkWinner(exactCount, nearCount){
       stringAnswer += colorsObject[answer[i]] + " "
     }
     alert(`You lost! Here is the code: ${stringAnswer}`)
+  } else {
+    renderPegs(exactCount, nearCount)
+  }
+}
 
-  } else if (nearCount === 0){
+function renderPegs(exactCount, nearCount){
+  if (nearCount === 0 && exactCount === 0){
       var element = document.getElementById('game-box')
       var tl = new TimelineMax();
       tl.to(element, .1, {
@@ -204,12 +213,7 @@ function checkWinner(exactCount, nearCount){
         x: "-=10",
         ease: Back.easeOut
       })
-  } else {
-    renderPegs(exactCount, nearCount)
   }
-}
-
-function renderPegs(exactCount, nearCount){
   var pegs = document.querySelector("#peg_list" + (wrongGuesses.length - 1));
   for (var i = 0; i < exactCount; i++){
     pegs.children[i].style.background = "red";
