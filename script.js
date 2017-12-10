@@ -209,9 +209,8 @@ function renderPegs(exactCount, nearCount){
       tl.to(element, .05, {
         x: "+=15"
       })
-      .to(element, .1, {
+      .to(element, .05, {
         x: "-=10",
-        ease: Back.easeOut
       })
   }
   var pegs = document.querySelector("#peg_list" + (wrongGuesses.length - 1));
